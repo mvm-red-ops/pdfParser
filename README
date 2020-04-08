@@ -9,14 +9,29 @@ In order to run locally, follow these steps:
 1. Clone the repository
 
 2. Make sure all of the individual PDFs that you want to convert are in the /pdfs directory of this project.
+  a.Since you receive the PDFs in a directory, all you have to do is copy them into the /pdfs directory
+  b.If the folder contains too many files to be copied and you get the "Argument list is too long" error, do the following 
+    i.Copy the directory folder into the /pdfs directory so that you have: 
+      -/pdfs
+        -/pdf-source
+          -pdf1
+          -pdf2
+          -pdf3..
+    ii. From the command line, change directories into the /pdf-source folder (the folder that has all the invoices)
+    iii. Copy and run this command "for x in *; do case "$x" in  *) mv -- "$x" ../ ;; esac ; done"
+    iv. Now all of the pdfs will be in the /pdfs directory and you can delete the /pdf-source folder 
 
 3. Make sure both the /csv and the /json directories are empty.
 
 4. Make sure node is installed by running node -v
   -if not, install it here https://nodejs.org/en/download/
 
-5. run 'node checkCount.js'
-  -make sure this outputs the correct number of pdfs
+5. Run 'node checkCount.js'
+  -Make sure this outputs the correct number of pdfs
+  -If you're not sure how many pdf's are supposed to exist, do the following
+    i. From the terminal, go to the original source directory 
+    ii.Once inside, run the following command: "ls -1 | wc -l"
+    iii. This will print out the total number of files in the directory and can be used as a reference in the checkCount function. 
 
 6. run 'node readPdfDirectory.js'
   -this reads the /pdfs directory and iterates through each pdf
@@ -26,10 +41,12 @@ In order to run locally, follow these steps:
 7. run 'node checkCount.js'
   -make sure the /json directory now contains the same number of files as the /pdfs directory
 
-8. run 'node transformJSON.js'
-  -this iterates through the /json directory
-  -for each json file, the content is passed to the findData function, which finds all of our relevant data
-    -findData is the function you would alter if you were ever to need to customize the information you need from the PDF files/ json data
-  -then the data from each json file is added to an array called csvData
-  -csvData is passed to the createCSV function which utilizes the npm package 'convert-array-to-csv' and writes the csv to the /csv directory
+8. Run 'node transformJSON.js'
+  a. This iterates through the /json directory
+  b. For each json file, the content is passed to the findData function, which finds all of our relevant data
+    i. FindData is the function you would alter if you were ever to need to customize the information you need from the PDF files/ json data
+  c. Then the data from each json file is added to an array called csvData
+  d. CsvData is passed to the createCSV function which utilizes the npm package 'convert-array-to-csv' and writes the csv to the /csv directory
+  e. If you receive the following error: "FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory"
+    just run "export NODE_OPTIONS=--max_old_space_size=4096" from the root directory of the application.
 9. Open the CSV and do your manual double checking 
