@@ -34,6 +34,7 @@ In order to run locally, follow these steps:
     iii. This will print out the total number of files in the directory and can be used as a reference in the checkCount function. 
 
 6. run 'node readPdfDirectory.js'
+  *This can take minutes to complete*
   -this reads the /pdfs directory and iterates through each pdf
   -for each pdf it utilizes the PDFParser library from 'pdf2json' (https://www.npmjs.com/package/pdf2json)
   -then it uses Node's 'fs' library to write to the /json directory the newly created json files

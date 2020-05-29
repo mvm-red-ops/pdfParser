@@ -1,11 +1,3 @@
-
-
-
-module.exports = {
-  getInvNumAndDates: getInvNumAndDates
-
-}
-
 function getInvNumAndDates (body, i, title){
     let dates
     let inNum
@@ -50,4 +42,8 @@ function validDate(date){
 
   return (dates && (dates[0].split('%').length === 3 && dates[1].split('%').length === 3))
 
+}
+
+module.exports = {
+  getInvNumAndDates: getInvNumAndDates
 }
