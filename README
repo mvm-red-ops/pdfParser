@@ -18,7 +18,8 @@ In order to run locally, follow these steps:
           -pdf2
           -pdf3..
     ii. From the command line, change directories into the /pdf-source folder (the folder that has all the invoices)
-    iii. Copy and run this command "for x in *; do case "$x" in  *) mv -- "$x" ../ ;; esac ; done"
+    iii. Copy and run this command:
+      for x in *; do case "$x" in  *) mv -- "$x" ../ ;; esac ; done
     iv. Now all of the pdfs will be in the /pdfs directory and you can delete the /pdf-source folder 
     v. Navigate back to root directory and delete the pdf source folder inside of /pdf
 
