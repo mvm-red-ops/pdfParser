@@ -28,11 +28,18 @@ function getInvNumAndDates (body, i, title){
 }
 
 function validInv(inv){
-  const version = inv.slice(-2)
+  console.log(inv)
+  const versionSplit = inv.split('-')
+  if(versionSplit.length != 2) return false
+
+  const version = versionSplit[1]
     //RegEx invoice
       //Invoice format: 1935634-2
       //Last two digits should always be 'dash something'
-  return(version[0] === '-' && typeof(parseInt(version[1])) === 'number')
+      console.log('valid inv')
+      console.log(version)
+      console.log(typeof(parseInt(version[1])) === 'number')
+  return(typeof(parseInt(version)) === 'number')
 }
 
 function validDate(date){
