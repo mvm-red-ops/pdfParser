@@ -14,6 +14,10 @@ In order to run locally, follow these steps:
     ii. run the following command: "ls -1 | wc -l"
     iii. This will print out the total number of files in the directory and can be used as a reference later in the checkCount function. 
 
+2. Create /pdfs, /json and /csv folders in the root of the project
+  -mkdir pdfs 
+  -mkdir json
+  -mkdir csv
 
 2. Make sure all of the individual PDFs that you want to convert are in the /pdfs directory of this project.
   a.Since you receive the PDFs in a directory, all you have to do is copy them into the /pdfs directory
@@ -56,4 +60,7 @@ In order to run locally, follow these steps:
   d. CsvData is passed to the createCSV function which utilizes the npm package 'convert-array-to-csv' and writes the csv to the /csv directory
   e. If you receive the following error: "FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory"
     just run "export NODE_OPTIONS=--max_old_space_size=4096" from the root directory of the application.
+
 9. Open the CSV and do your manual double checking 
+
+10. Delete the /pdfs, /csv and /json directory's content 
