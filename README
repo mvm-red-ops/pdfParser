@@ -6,7 +6,14 @@ It is currently set for our team's specific invoicing needs, but can easily be a
 
 In order to run locally, follow these steps:
 
-1. Clone the repository
+0. Clone the repository
+
+1. Download the .zip file and check how many files are in the invoice source folder.
+  -If you're not sure how many pdf's are supposed to exist, do the following
+    i. From the terminal, cd into the pdf source directory 
+    ii. run the following command: "ls -1 | wc -l"
+    iii. This will print out the total number of files in the directory and can be used as a reference later in the checkCount function. 
+
 
 2. Make sure all of the individual PDFs that you want to convert are in the /pdfs directory of this project.
   a.Since you receive the PDFs in a directory, all you have to do is copy them into the /pdfs directory
@@ -20,8 +27,9 @@ In order to run locally, follow these steps:
     ii. From the command line, change directories into the /pdf-source folder (the folder that has all the invoices)
     iii. Copy and run this command:
       for x in *; do case "$x" in  *) mv -- "$x" ../ ;; esac ; done
-    iv. Now all of the pdfs will be in the /pdfs directory and you can delete the /pdf-source folder 
-    v. Navigate back to root directory and delete the pdf source folder inside of /pdf
+    iv. Now all of the pdfs will be in the /pdfs directory 
+    v. delete the /pdf-source folder by changing directories 'cd ..' and running 'rm -rf pdf-source'
+    vi. Navigate back to root directory and delete the pdf source folder inside of /pdf
 
 3. Make sure both the /csv and the /json directories are empty.
 
@@ -30,10 +38,6 @@ In order to run locally, follow these steps:
 
 5. Run 'node checkCount.js'
   -Make sure this outputs the correct number of pdfs
-  -If you're not sure how many pdf's are supposed to exist, do the following
-    i. From the terminal, go to the original source directory 
-    ii.Once inside, run the following command: "ls -1 | wc -l"
-    iii. This will print out the total number of files in the directory and can be used as a reference in the checkCount function. 
 
 6. run 'node readPdfDirectory.js'
   *This can take minutes to complete*

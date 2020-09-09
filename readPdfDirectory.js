@@ -12,7 +12,7 @@ function readDirectory(){
       //skip hidden .DS_S file
       if(jsonExt === '.DS_S') continue
 
-      //prase the pdf from imported function
+      //parse the pdf from imported function
       parsePdf.execute(jsonExt)
     }
   });
