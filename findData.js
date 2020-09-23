@@ -30,7 +30,7 @@ function getInvNumAndDates (body, i, title){
 function validInv(inv){
   console.log(inv)
   const versionSplit = inv.split('-')
-  if(versionSplit.length != 2 || versionSplit.length != 2) return false
+  if(versionSplit.length != 2 && versionSplit.length != 3) return false
 
   const version = versionSplit[1]
     //RegEx invoice
