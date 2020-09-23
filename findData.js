@@ -10,7 +10,7 @@ function getInvNumAndDates (body, i, title){
     let adjInvIdx = invIdx + 4
     if(!body[adjInvIdx]) return ['unexpected values', i, title]
     invIdx = body[adjInvIdx]["R"][0]["T"]
-
+    
     //find Flight
     let flightIdx = body.findIndex( obj => obj["R"][0]["T"] === 'Flight' )
     let adjFlightIdx = flightIdx + 4
@@ -30,7 +30,7 @@ function getInvNumAndDates (body, i, title){
 function validInv(inv){
   console.log(inv)
   const versionSplit = inv.split('-')
-  if(versionSplit.length != 2) return false
+  if(versionSplit.length != 2 || versionSplit.length != 2) return false
 
   const version = versionSplit[1]
     //RegEx invoice
